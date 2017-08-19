@@ -1,0 +1,27 @@
+<div class="container">
+    <div>
+        <input type="text" placeholder="Search..." #filter (keyup.enter)="filterReviews(filter.value)">
+    </div>
+    <div class="col-md-6 fixed-column">
+        <md-grid-list cols="2" rowHeight="150px">
+            <md-grid-tile *ngFor="let review of reviews">
+                <md-card class="review-card">
+                    <md-card-header>
+                        <md-card-title-group>
+                            <md-card-title>{{ review.display_title }}</md-card-title>
+                            <md-card-subtitle *ngIf="review.opening_date"><small>Opening: {{ review.opening_date }}</small></md-card-subtitle>
+                            <img md-card-sm-image src="{{ review.multimedia.src }}" *ngIf="review.multimedia">
+                        </md-card-title-group>
+                    </md-card-header>
+                    <md-card-actions>
+                        <button md-button (click)="onSelect(review)">More</button>
+                        <span class="critics" *ngIf="review.critics_pick > 0"><small>Critics!</small></span>
+                    </md-card-actions>
+                </md-card>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+    <div class="col-md-6 fixed-column">
+        <review-detail [review]="selectedReview"></review-detail>
+    </div>
+</div>

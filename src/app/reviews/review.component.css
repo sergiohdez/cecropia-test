@@ -1,0 +1,14 @@
+.container {
+    height: 100%;
+}
+.fixed-column {
+    overflow-y: auto;
+    height: 500px;
+}
+.review-card {
+    width: 100%;
+}
+.critics {
+    background-color: orange;
+    float: right;
+}

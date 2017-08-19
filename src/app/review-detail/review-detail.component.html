@@ -1,0 +1,20 @@
+<md-card *ngIf="review">
+    <md-card-title-group>
+        <md-card-title>{{ review.display_title }}</md-card-title>
+        <md-card-subtitle *ngIf="review.opening_date"><small>Opening: {{ review.opening_date }}</small></md-card-subtitle>
+        <img md-card-sm-image src="{{ review.multimedia.src }}" *ngIf="review.multimedia">
+    </md-card-title-group>
+    <md-card-content>
+        <div>
+        <h4>{{ review.headline }}</h4>
+        <h5>{{ review.byline }} <small *ngIf="review.publication_date">| Published at: {{ review.publication_date }}</small></h5>
+        <p>
+            {{ review.summary_short }}
+        </p>
+        <p>Critics count: {{ review.critics_pick }}</p>
+        </div>
+    </md-card-content>
+    <md-card-actions>
+        <a href="{{review.link.url}}" target="_blank">{{ review.link.suggested_link_text }}</a>
+    </md-card-actions>
+</md-card>
